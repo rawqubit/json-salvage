@@ -1,0 +1,84 @@
+Realistic broken output from language models. One case per section; the
+section name says what is broken. Everything below is a verbatim model
+response -- try any single section with `python3 json_salvage.py fixture.txt`.
+
+### markdown-fence
+Here is the JSON you asked for:
+
+```json
+{"name": "Ada Lovelace", "born": 1815, "tags": ["math", "computing"]}
+```
+
+### prose-around
+Sure, the result is below.
+
+{"ok": true, "items": [1, 2, 3], "note": "all good"}
+
+Let me know if you want anything else.
+
+### trailing-commas
+{"a": 1, "b": [2, 3, 4,], "c": {"d": 5,},}
+
+### single-quotes
+{'name': 'Ada', 'language': "Python's rival"}
+
+### unquoted-keys
+{a: 1, b: 'x', c: [true, false]}
+
+### python-literals
+{"enabled": True, "missing": None, "checked": False}
+
+### numeric-specials
+{"loss": NaN, "score": Infinity, "floor": -Infinity}
+
+### comments
+{
+  // the model explaining itself
+  "retries": 3,  /* inline note */
+  "timeout": 1.5,
+}
+
+### truncated-string
+{"name": "unterminated
+
+### truncated-array
+{"items": [1, 2, 3
+
+### truncated-key
+{"a": 1, "b
+
+### trailing-garbage
+{"status": "ok"} Hope that helps, let me know.
+
+### concatenated-values
+{"a": 1}{"b": 2}
+
+### newline-jsonl
+{"id": 1}
+{"id": 2}
+{"id": 3}
+
+### escaped-strings
+{"path": "C:\\Users\\ada", "quote": "she said \"hello\" and left"}
+
+### smart-quotes
+{“name”: “Ada”, “tags”: [‘math’, ‘logic’]}
+
+### bare-scalars
+true
+null
+42
+
+### number-types
+{"count": 7, "ratio": 1.5, "big": 1e6, "negative": -12}
+
+### fenced-unterminated
+```json
+{"draft": true, "steps": ["one", "two"]
+
+### bom-whitespace
+﻿
+   {"bom": true}
+
+### deep-nesting
+{"l1": {"l2": {"l3": {"l4": {"l5": {"l6": [1, 2, 3
